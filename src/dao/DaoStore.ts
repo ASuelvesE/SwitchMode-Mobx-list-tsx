@@ -7,6 +7,7 @@ import { fetchAll } from "../services/todos";
 class DaoStore implements Todos {
   todos: Todo[] = [];
   newTodo: string = "";
+  isLoading = true;
 
   constructor() {
     makeAutoObservable(this);
@@ -25,13 +26,16 @@ class DaoStore implements Todos {
         text: this.newTodo,
         done: false
       }
-      this.todos.push(newTodo)
+      this.todos.push(newTodo);
+      this.isLoading = false;
       this.newTodo = "";
     }
   }
 
   async load() {
+    this.isLoading = true;
     this.todos = await fetchAll();
+    this.isLoading = false;
   }
 }
 
