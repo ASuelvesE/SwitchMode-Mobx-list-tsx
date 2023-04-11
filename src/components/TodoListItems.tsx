@@ -4,6 +4,7 @@ import { observer } from "mobx-react-lite";
 
 import store from "../dao/DaoStore";
 import { autorun } from "mobx";
+import TodoAdd from "./TodoAdd";
 
 function TodoListItems() {
 
@@ -35,6 +36,7 @@ function TodoListItems() {
           }
         </Flex>
       ))}
+      <TodoAdd />
     </>
   );
 }

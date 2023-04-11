@@ -4,7 +4,7 @@ import { Button, Grid } from "@chakra-ui/react";
 import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import store from "../dao/DaoStore";
 
-function TopBar() {
+function NavBar() {
   
   const onLoad = () => {
     store.load();
@@ -18,4 +18,4 @@ function TopBar() {
   );
 }
 
-export default TopBar;
+export default NavBar;
