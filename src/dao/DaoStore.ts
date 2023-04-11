@@ -1,6 +1,7 @@
-import { makeAutoObservable } from "mobx";
+import { autorun, makeAutoObservable } from "mobx";
 import Todo from "../models/Todo";
 import Todos from "../models/Todos";
+import { fetchAll } from "../services/todos";
 
 // MobX implementation
 class DaoStore implements Todos {
@@ -29,10 +30,8 @@ class DaoStore implements Todos {
     }
   }
 
-  load(url: string) {
-    fetch(url)
-      .then((resp) => resp.json())
-      .then((todosDB: Todo[]) => (store.todos = todosDB));
+  async load() {
+    this.todos = await fetchAll();
   }
 }
 

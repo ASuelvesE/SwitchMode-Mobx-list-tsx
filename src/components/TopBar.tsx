@@ -5,10 +5,9 @@ import { ColorModeSwitcher } from "./ColorModeSwitcher";
 import store from "../dao/DaoStore";
 
 function TopBar() {
+  
   const onLoad = () => {
-    store.load(
-      "https://raw.githubusercontent.com/jherr/todos-four-ways/master/data/todos.json"
-    );
+    store.load();
   };
 
   return (

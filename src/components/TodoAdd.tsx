@@ -6,7 +6,7 @@ import store from "../dao/DaoStore";
 
 function TodoAdd() {
   return (
-    <Grid pt={2} templateColumns="5fr 1fr" columnGap="3">
+    <Grid pt={4} templateColumns="5fr 1fr" columnGap="3">
       <Input
         value={store.newTodo}
         onChange={(evt) => (store.newTodo = evt.target.value)}
